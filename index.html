@@ -3,31 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Institut Kémite | Registre Officiel</title>
+    <title>REGISTRE OFFICIEL DES MEMBRES</title>
     <style>
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f9f9f9; color: #333; line-height: 1.6; padding: 20px; }
         .container { max-width: 700px; margin: 40px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         h1 { font-size: 20px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 30px; text-align: center; }
-        h2 { font-size: 16px; margin-top: 40px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        h2 { font-size: 15px; text-transform: uppercase; margin-top: 40px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
         table { width: 100%; border-collapse: collapse; }
         th { text-align: left; font-size: 12px; color: #888; text-transform: uppercase; padding: 10px; border-bottom: 1px solid #eee; }
         td { padding: 15px 10px; border-bottom: 1px solid #f1f1f1; font-size: 15px; }
+        
+        /* Styles Statuts */
         .status { font-weight: bold; font-size: 13px; padding: 4px 10px; border-radius: 20px; }
         .status.active { color: #27ae60; background: #ebf9f1; }
         .status.pending { color: #e67e22; background: #fef5ec; }
+        
         .org { font-size: 12px; color: #555; background: #eee; padding: 2px 8px; border-radius: 4px; }
+        
+        /* Styles Badges Types */
         .badge-type { font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: bold; text-transform: uppercase; display: inline-block; margin-top: 4px; }
         .type-titulaire { background: #e3f2fd; color: #1976d2; }
         .type-associe { background: #e8f5e9; color: #388e3c; }
         .type-morale { background: #f3e5f5; color: #7b1fa2; }
         .type-contributeur { background: #fff3e0; color: #f57c00; }
+        
+        /* Style Grisé pour les membres non à jour */
+        .grise { opacity: 0.6; filter: grayscale(100%); }
+        
         .footer { margin-top: 30px; font-size: 11px; color: #bbb; text-align: center; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Institut Kémite des Sciences Mryt Ptah Pasashatou</h1>
-        <p style="text-align:center; font-size:12px; margin-top:-20px;">Registre Officiel (IIA & IIMD)</p>
+        <h1>REGISTRE OFFICIEL DES MEMBRES</h1>
+        <p style="text-align:center; font-size:12px; margin-top:-20px;">Institut Kémite des Sciences Mryt Ptah Pasashatou</p>
         
         <h2 style="color: #27ae60;">Membres en règle</h2>
         <table>
@@ -89,12 +98,12 @@
       </tr></tbody>
         </table>
 
-        <h2 style="color: #e67e22;">Membres à régulariser</h2>
-        <table>
+        <h2 style="color: #888;">Membres à régulariser</h2>
+        <table class="grise">
             <tbody><tr><td colspan='3'>Aucun membre en attente</td></tr></tbody>
         </table>
 
-        <div class="footer">Dernière mise à jour : 03/03/2026 à 21:50:54</div>
+        <div class="footer">Dernière mise à jour : 03/03/2026</div>
     </div>
 </body>
 </html>
