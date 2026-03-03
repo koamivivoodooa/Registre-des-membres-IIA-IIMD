@@ -6,26 +6,57 @@
     <title>REGISTRE OFFICIEL DES MEMBRES</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #f9f9f9; color: #333; line-height: 1.6; padding: 20px 60px; }
-        .container { max-width: 900px; margin: 40px auto; background: white; padding: 30px 60px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        h1 { font-size: 20px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 30px; text-align: center; }
-        h2 { font-size: 14px; text-transform: uppercase; margin-top: 40px; border-bottom: 1px solid #eee; padding-bottom: 8px; letter-spacing: 1px; text-align: center; }
+        
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9f9; color: #333; line-height: 1.6; padding: 40px 20px; }
+        
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 40px 80px 60px 80px; /* Augmentation Gauche, Droite et Bas */
+            border-radius: 12px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+        }
+
+        h1 { font-size: 20px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 40px; text-align: center; }
+        h2 { font-size: 13px; text-transform: uppercase; margin-top: 50px; border-bottom: 1px solid #eee; padding-bottom: 10px; letter-spacing: 1px; }
+
         table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-        td { padding: 15px 5px; border-bottom: 1px solid #f1f1f1; font-size: 15px; }
-        .status { font-weight: bold; font-size: 13px; padding: 4px 10px; border-radius: 20px; white-space: nowrap; display: inline-block; }
+        td { padding: 18px 0; border-bottom: 1px solid #f1f1f1; vertical-align: middle; }
+
+        /* Gestion des colonnes */
+        .col-nom { width: 60%; }
+        .col-org { width: 15%; text-align: center; }
+        .col-status { width: 20%; text-align: right; }
+        .col-spacer { width: 2.5%; } /* Les 5% d'espace divisés en deux */
+
+        .status { 
+            font-weight: bold; 
+            font-size: 12px; 
+            padding: 6px 12px; 
+            border-radius: 20px; 
+            display: inline-block;
+            text-align: center;
+            line-height: 1.2;
+            word-wrap: break-word; /* Permet au texte de descendre */
+            max-width: 100%;
+        }
         .status.active { color: #27ae60; background: #ebf9f1; }
         .status.pending { color: #e67e22; background: #fef5ec; }
-        .org { font-size: 12px; color: #555; background: #eee; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
-        .grise { opacity: 0.7; filter: grayscale(100%); }
-        .footer { margin-top: 30px; font-size: 11px; color: #bbb; text-align: center; }
+
+        .org { font-size: 11px; color: #555; background: #eee; padding: 4px 8px; border-radius: 4px; display: inline-block; }
+        
+        .grise { opacity: 0.6; filter: grayscale(100%); }
+        .footer { margin-top: 50px; font-size: 11px; color: #bbb; text-align: center; }
         
         @media (max-width: 600px) {
-            body { padding: 10px 10px; }
-            .container { padding: 20px 15px; margin: 10px auto; }
-            strong { font-size: 15px !important; }
-            td { padding: 10px 2px; }
-            .status { font-size: 10px; padding: 3px 6px; }
-            .org { font-size: 10px; padding: 2px 4px; }
+            .container { padding: 30px 20px 40px 20px; }
+            .col-nom { width: 50%; }
+            .col-org { width: 20%; }
+            .col-status { width: 25%; }
+            .col-spacer { width: 2.5%; }
+            strong { font-size: 16px !important; }
+            .status { font-size: 10px; padding: 4px 8px; }
         }
     </style>
 </head>
@@ -37,59 +68,81 @@
         <table>
             <tbody>
       <tr>
-        <td style="width: 55%;"><strong style="font-size: 18px;">Dr. Dodji Mahouignito Djehouty OLOU</strong><br><small style="color:#888">Membre Titulaire</small></td>
-        <td style="width: 20%;"><span class="org">IIA, IIMD</span></td>
-        <td style="width: 25%; text-align: right;"><span class="status active">✔ À JOUR</span></td>
+        <td class="col-nom"><strong style="font-size: 18px;">Dr. Dodji Mahouignito Djehouty OLOU</strong><br><small style="color:#888">Membre Titulaire</small></td>
+        <td class="col-spacer"></td>
+        <td class="col-org"><span class="org">IIA, IIMD</span></td>
+        <td class="col-spacer"></td>
+        <td class="col-status"><span class="status active">✔ À JOUR</span></td>
       </tr>
       <tr>
-        <td style="width: 55%;"><strong style="font-size: 18px;">Dr. Adjoa Herou Menesy DOMELEVO</strong><br><small style="color:#888">Membre Titulaire</small></td>
-        <td style="width: 20%;"><span class="org">IIA</span></td>
-        <td style="width: 25%; text-align: right;"><span class="status active">✔ À JOUR</span></td>
+        <td class="col-nom"><strong style="font-size: 18px;">Dr. Adjoa Herou Menesy DOMELEVO</strong><br><small style="color:#888">Membre Titulaire</small></td>
+        <td class="col-spacer"></td>
+        <td class="col-org"><span class="org">IIA</span></td>
+        <td class="col-spacer"></td>
+        <td class="col-status"><span class="status active">✔ À JOUR</span></td>
       </tr>
       <tr>
-        <td style="width: 55%;"><strong style="font-size: 18px;">Dr. Mawuli Chantal OLOU</strong><br><small style="color:#888">Membre Titulaire</small></td>
-        <td style="width: 20%;"><span class="org">IIA, IIMD</span></td>
-        <td style="width: 25%; text-align: right;"><span class="status active">✔ À JOUR</span></td>
+        <td class="col-nom"><strong style="font-size: 18px;">Dr. Mawuli Chantal OLOU</strong><br><small style="color:#888">Membre Titulaire</small></td>
+        <td class="col-spacer"></td>
+        <td class="col-org"><span class="org">IIA, IIMD</span></td>
+        <td class="col-spacer"></td>
+        <td class="col-status"><span class="status active">✔ À JOUR</span></td>
       </tr>
       <tr>
-        <td style="width: 55%;"><strong style="font-size: 18px;">Ayao TSISSE</strong><br><small style="color:#888">Membre Titulaire</small></td>
-        <td style="width: 20%;"><span class="org">IIA, IIMD</span></td>
-        <td style="width: 25%; text-align: right;"><span class="status active">✔ À JOUR</span></td>
+        <td class="col-nom"><strong style="font-size: 18px;">Ayao TSISSE</strong><br><small style="color:#888">Membre Titulaire</small></td>
+        <td class="col-spacer"></td>
+        <td class="col-org"><span class="org">IIA, IIMD</span></td>
+        <td class="col-spacer"></td>
+        <td class="col-status"><span class="status active">✔ À JOUR</span></td>
       </tr>
       <tr>
-        <td style="width: 55%;"><strong style="font-size: 18px;">Sanitfwré</strong><br><small style="color:#888">Membre Titulaire</small></td>
-        <td style="width: 20%;"><span class="org">IIMD</span></td>
-        <td style="width: 25%; text-align: right;"><span class="status active">✔ À JOUR</span></td>
+        <td class="col-nom"><strong style="font-size: 18px;">Sanitfwré</strong><br><small style="color:#888">Membre Titulaire</small></td>
+        <td class="col-spacer"></td>
+        <td class="col-org"><span class="org">IIMD</span></td>
+        <td class="col-spacer"></td>
+        <td class="col-status"><span class="status active">✔ À JOUR</span></td>
       </tr>
       <tr>
-        <td style="width: 55%;"><strong style="font-size: 18px;">Alima EYANGA</strong><br><small style="color:#888">Membre Titulaire</small></td>
-        <td style="width: 20%;"><span class="org">IIA, IIMD</span></td>
-        <td style="width: 25%; text-align: right;"><span class="status active">✔ À JOUR</span></td>
+        <td class="col-nom"><strong style="font-size: 18px;">Alima EYANGA</strong><br><small style="color:#888">Membre Titulaire</small></td>
+        <td class="col-spacer"></td>
+        <td class="col-org"><span class="org">IIA, IIMD</span></td>
+        <td class="col-spacer"></td>
+        <td class="col-status"><span class="status active">✔ À JOUR</span></td>
       </tr>
       <tr>
-        <td style="width: 55%;"><strong style="font-size: 18px;">Lanoir Fifamè LUCIANI</strong><br><small style="color:#888">Membre Titulaire</small></td>
-        <td style="width: 20%;"><span class="org">IIA</span></td>
-        <td style="width: 25%; text-align: right;"><span class="status active">✔ À JOUR</span></td>
+        <td class="col-nom"><strong style="font-size: 18px;">Lanoir Fifamè LUCIANI</strong><br><small style="color:#888">Membre Titulaire</small></td>
+        <td class="col-spacer"></td>
+        <td class="col-org"><span class="org">IIA</span></td>
+        <td class="col-spacer"></td>
+        <td class="col-status"><span class="status active">✔ À JOUR</span></td>
       </tr>
       <tr>
-        <td style="width: 55%;"><strong style="font-size: 18px;">S. Christiano Emmanuel Dah HOUNDOGBANON</strong><br><small style="color:#888">Membre Titulaire</small></td>
-        <td style="width: 20%;"><span class="org">IIMD</span></td>
-        <td style="width: 25%; text-align: right;"><span class="status active">✔ À JOUR</span></td>
+        <td class="col-nom"><strong style="font-size: 18px;">S. Christiano Emmanuel Dah HOUNDOGBANON</strong><br><small style="color:#888">Membre Titulaire</small></td>
+        <td class="col-spacer"></td>
+        <td class="col-org"><span class="org">IIMD</span></td>
+        <td class="col-spacer"></td>
+        <td class="col-status"><span class="status active">✔ À JOUR</span></td>
       </tr>
       <tr>
-        <td style="width: 55%;"><strong style="font-size: 18px;">Sonagnon Bienvenu DOSSA</strong><br><small style="color:#888">Membre Associé</small></td>
-        <td style="width: 20%;"><span class="org">IIMD</span></td>
-        <td style="width: 25%; text-align: right;"><span class="status active">✔ À JOUR</span></td>
+        <td class="col-nom"><strong style="font-size: 18px;">Sonagnon Bienvenu DOSSA</strong><br><small style="color:#888">Membre Associé</small></td>
+        <td class="col-spacer"></td>
+        <td class="col-org"><span class="org">IIMD</span></td>
+        <td class="col-spacer"></td>
+        <td class="col-status"><span class="status active">✔ À JOUR</span></td>
       </tr>
       <tr>
-        <td style="width: 55%;"><strong style="font-size: 18px;">Wuilchrist TELLA</strong><br><small style="color:#888">Membre Contributeur</small></td>
-        <td style="width: 20%;"><span class="org">IIA</span></td>
-        <td style="width: 25%; text-align: right;"><span class="status active">✔ À JOUR</span></td>
+        <td class="col-nom"><strong style="font-size: 18px;">Wuilchrist TELLA</strong><br><small style="color:#888">Membre Contributeur</small></td>
+        <td class="col-spacer"></td>
+        <td class="col-org"><span class="org">IIA</span></td>
+        <td class="col-spacer"></td>
+        <td class="col-status"><span class="status active">✔ À JOUR</span></td>
       </tr>
       <tr>
-        <td style="width: 55%;"><strong style="font-size: 18px;">Koamivi Voodooa</strong><br><small style="color:#888">Membre Contributeur</small></td>
-        <td style="width: 20%;"><span class="org">IIA, IIMD</span></td>
-        <td style="width: 25%; text-align: right;"><span class="status active">✔ À JOUR</span></td>
+        <td class="col-nom"><strong style="font-size: 18px;">Koamivi Voodooa</strong><br><small style="color:#888">Membre Contributeur</small></td>
+        <td class="col-spacer"></td>
+        <td class="col-org"><span class="org">IIA, IIMD</span></td>
+        <td class="col-spacer"></td>
+        <td class="col-status"><span class="status active">✔ À JOUR</span></td>
       </tr></tbody>
         </table>
 
@@ -98,9 +151,11 @@
           <table>
               <tbody>
       <tr>
-        <td style="width: 55%;"><strong style="font-size: 18px;">Pr. Pierre Olela NGONGO</strong><br><small style="color:#888">Membre Titulaire</small></td>
-        <td style="width: 20%;"><span class="org">IIMD</span></td>
-        <td style="width: 25%; text-align: right;"><span class="status pending">⏳ EN ATTENTE</span></td>
+        <td class="col-nom"><strong style="font-size: 18px;">Pr. Pierre Olela NGONGO</strong><br><small style="color:#888">Membre Titulaire</small></td>
+        <td class="col-spacer"></td>
+        <td class="col-org"><span class="org">IIMD</span></td>
+        <td class="col-spacer"></td>
+        <td class="col-status"><span class="status pending">⏳ EN ATTENTE</span></td>
       </tr></tbody>
           </table>
         </div>
