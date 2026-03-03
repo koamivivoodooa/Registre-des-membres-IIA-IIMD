@@ -5,41 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REGISTRE OFFICIEL DES MEMBRES</title>
     <style>
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f4f4f4; color: #333; line-height: 1.6; padding: 20px 10px; }
+        /* Marges gauche/droite augmentées */
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f9f9f9; color: #333; line-height: 1.6; padding: 20px 40px; }
         
-        /* Conteneur plus large avec marges internes (padding) augmentées */
-        .container { max-width: 1000px; margin: 20px auto; background: white; padding: 40px 50px; border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.07); }
+        /* Conteneur élargi */
+        .container { max-width: 1000px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         
-        h1 { font-size: 22px; text-transform: uppercase; letter-spacing: 3px; border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 40px; text-align: center; }
-        h2 { font-size: 14px; text-transform: uppercase; margin-top: 40px; border-bottom: 1px solid #eee; padding-bottom: 10px; text-align: center; letter-spacing: 1px; }
+        h1 { font-size: 18px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 30px; text-align: center; }
+        h2 { font-size: 13px; text-transform: uppercase; margin-top: 30px; border-bottom: 1px solid #eee; padding-bottom: 8px; text-align: center; }
         
         table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-        td { padding: 18px 10px; border-bottom: 1px solid #f1f1f1; vertical-align: middle; }
+        td { padding: 15px 5px; border-bottom: 1px solid #f1f1f1; font-size: 14px; word-wrap: break-word; }
         
-        /* Taille du nom augmentée */
-        .nom-membre { font-size: 17px; font-weight: 800; color: #000; display: block; margin-bottom: 2px; }
-        
-        /* Proportions 60 / 20 / 20 */
+        /* Colonnes 60 / 20 / 20 */
         .col-nom { width: 60%; }
         .col-org { width: 20%; text-align: center; }
         .col-statut { width: 20%; text-align: right; }
 
-        .status { font-weight: bold; font-size: 11px; padding: 5px 12px; border-radius: 20px; white-space: nowrap; display: inline-block; }
+        /* Style du nom accentué */
+        .nom-membre { font-weight: 800; font-size: 17px; color: #000; display: block; margin-bottom: 2px; }
+        
+        .status { font-weight: bold; font-size: 11px; padding: 4px 8px; border-radius: 20px; white-space: nowrap; display: inline-block; }
         .status.active { color: #27ae60; background: #ebf9f1; }
         .status.pending { color: #e67e22; background: #fef5ec; }
         
-        .org { font-size: 11px; color: #666; background: #f0f0f0; padding: 3px 10px; border-radius: 6px; display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .org { font-size: 11px; color: #555; background: #eee; padding: 2px 6px; border-radius: 4px; display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         
-        .grise { opacity: 0.6; filter: grayscale(100%); }
-        .footer { margin-top: 50px; font-size: 11px; color: #bbb; text-align: center; border-top: 1px solid #eee; padding-top: 20px; }
+        .grise { opacity: 0.7; filter: grayscale(100%); }
+        .footer { margin-top: 30px; font-size: 10px; color: #bbb; text-align: center; }
 
-        /* Optimisation Mobile */
         @media (max-width: 600px) {
-            .container { padding: 25px 15px; margin: 5px auto; border-radius: 8px; }
-            .nom-membre { font-size: 15px; }
-            td { padding: 12px 5px; }
-            .status { font-size: 9px; padding: 4px 8px; }
-            h1 { font-size: 16px; }
+            body { padding: 10px 15px; } /* Réduction des marges sur mobile pour garder de l'espace */
+            .container { padding: 15px; margin: 10px auto; }
+            td { font-size: 12px; padding: 10px 2px; }
+            .nom-membre { font-size: 14px; }
+            .status { font-size: 9px; padding: 3px 6px; }
+            h1 { font-size: 15px; }
         }
     </style>
 </head>
@@ -107,7 +108,7 @@
       </tr></tbody>
         </table>
 
-        <h2 style="color: #888;">Membres à régulariser</h2>
+        <h2 style="color: #999;">Membres à régulariser</h2>
         <div class="grise">
           <table>
               <tbody>
