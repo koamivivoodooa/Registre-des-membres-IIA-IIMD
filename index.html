@@ -16,91 +16,45 @@
             --text-light: #94a3b8;
         }
 
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: var(--bg); 
-            color: var(--primary); 
-            margin: 0;
-            padding: 40px 15px;
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        .container { 
-            max-width: 850px; 
-            margin: 0 auto; 
-            background: var(--card); 
-            padding: 60px; 
-            border-radius: 32px; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.04); 
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--primary); margin: 0; padding: 40px 15px; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 900px; margin: 0 auto; background: var(--card); padding: 60px 80px; border-radius: 32px; box-shadow: 0 20px 50px rgba(0,0,0,0.04); }
 
         header { text-align: center; margin-bottom: 40px; }
-        h1 { font-weight: 800; font-size: 24px; letter-spacing: -0.5px; text-transform: uppercase; margin: 0; }
-        .subtitle { color: var(--text-light); font-size: 15px; margin-top: 8px; font-weight: 600; }
+        h1 { font-weight: 800; font-size: 22px; letter-spacing: -0.5px; text-transform: uppercase; margin: 0; }
+        .subtitle { color: var(--text-light); font-size: 14px; margin-top: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
         .search-container { margin: 30px 0; text-align: center; }
-        #searchInput {
-            width: 100%;
-            max-width: 400px;
-            padding: 12px 20px;
-            border-radius: 12px;
-            border: 1px solid #eee;
-            font-family: inherit;
-            font-size: 14px;
-            outline: none;
-            transition: all 0.3s;
-            background: #fdfdfd;
-        }
-        #searchInput:focus { border-color: var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        #memberSearch { width: 100%; max-width: 300px; padding: 10px 15px; border: 1px solid #eee; border-radius: 10px; font-family: inherit; font-size: 13px; outline: none; transition: all 0.3s; }
+        #memberSearch:focus { border-color: var(--text-light); box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
 
-        .table-header { 
-            display: grid; 
-            grid-template-columns: 1.5fr 1fr 1fr; 
-            padding: 15px 0; 
-            border-bottom: 2px solid #1a1a1a;
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #555;
-        }
-        .header-status { text-align: right; }
-        .header-org { text-align: center; }
+        h2.section-title { font-size: 11px; text-transform: uppercase; color: var(--text-light); letter-spacing: 2px; margin: 50px 0 20px 0; text-align: center; display: block; }
 
-        h2.section-title { 
-            font-size: 13px; 
-            text-transform: uppercase; 
-            color: var(--primary); 
-            letter-spacing: 2px;
-            margin: 50px 0 25px 0;
-            text-align: center;
-            font-weight: 800;
-        }
+        table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        thead th { font-size: 10px; text-transform: uppercase; color: var(--text-light); padding-bottom: 15px; border-bottom: 1px solid #f1f5f9; letter-spacing: 1px; }
+        tr { border-bottom: 1px solid #f1f5f9; }
+        td { padding: 20px 0; vertical-align: middle; overflow: hidden; }
 
-        table { width: 100%; border-collapse: collapse; }
-        tr { border-bottom: 1px solid #f1f5f9; transition: all 0.2s ease; }
-        tr:hover { background: #fafafa; }
-        td { padding: 20px 0; }
+        .col-nom { width: 60%; text-align: left; }
+        .col-spacer { width: 5%; }
+        .col-org { width: 15%; text-align: left; }
+        .col-status { width: 20%; text-align: right; }
 
         .name { font-weight: 600; font-size: 16px; color: var(--primary); }
-        .type { font-size: 11px; color: var(--text-light); margin-top: 4px; text-transform: uppercase; }
-
-        .org { font-size: 11px; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 4px 10px; border-radius: 6px; }
-
-        .status { font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 100px; display: inline-block; white-space: nowrap; }
+        .type { font-size: 11px; color: var(--text-light); margin-top: 3px; }
+        .org { font-size: 10px; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 4px 8px; border-radius: 5px; white-space: nowrap; }
+        .status { font-size: 10px; font-weight: 700; padding: 5px 10px; border-radius: 100px; display: inline-block; white-space: nowrap; }
         .status.active { color: var(--accent); border: 1px solid rgba(39, 174, 96, 0.2); }
         .status.pending { color: var(--warning); border: 1px solid rgba(230, 126, 34, 0.2); }
 
-        .col-org { text-align: center; }
-        .col-status { text-align: right; }
-
-        .footer { margin-top: 80px; font-size: 12px; color: var(--text-light); text-align: center; line-height: 1.8; }
+        .footer { margin-top: 60px; font-size: 11px; color: var(--text-light); text-align: center; line-height: 1.8; }
 
         @media (max-width: 600px) {
-            .container { padding: 40px 25px; border-radius: 20px; }
-            h1 { font-size: 18px; }
+            body { padding: 20px 10px; }
+            .container { padding: 40px 25px; border-radius: 24px; }
             .name { font-size: 14px; }
-            .table-header { grid-template-columns: 1.2fr 1fr 1fr; font-size: 9px; }
+            .col-nom { width: 50%; }
+            .col-org { width: 20%; }
+            .col-status { width: 25%; }
             .org { font-size: 9px; padding: 3px 6px; }
             .status { font-size: 9px; padding: 4px 8px; }
         }
@@ -114,23 +68,27 @@
         </header>
 
         <div class="search-container">
-            <input type="text" id="searchInput" onkeyup="filterMembers()" placeholder="Rechercher un membre ou une organisation...">
-        </div>
-
-        <div class="table-header">
-            <div>Prénoms & Noms</div>
-            <div class="header-org">Organisation</div>
-            <div class="header-status">Statut</div>
+            <input type="text" id="memberSearch" placeholder="Rechercher un nom..." onkeyup="filterMembers()">
         </div>
         
         <h2 class="section-title">Membres Actifs</h2>
-        <table id="tableAjour">
-            <tbody>
+        <table>
+            <thead>
+                <tr>
+                    <th class="col-nom">Prénoms & Noms</th>
+                    <th class="col-spacer"></th>
+                    <th class="col-org">Organisation</th>
+                    <th class="col-status">Statut</th>
+                </tr>
+            </thead>
+            <tbody id="listAjour">
+                
       <tr class="member-row">
         <td class="col-nom">
           <div class="name">Dr. Dodji Mahouignito Djehouty OLOU</div>
           <div class="type">Membre Titulaire</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -139,6 +97,7 @@
           <div class="name">Dr. Adjoa Herou Menesy DOMELEVO</div>
           <div class="type">Membre Titulaire</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -147,6 +106,7 @@
           <div class="name">Dr. Mawuli Chantal OLOU</div>
           <div class="type">Membre Titulaire</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -155,6 +115,7 @@
           <div class="name">Ayao TSISSE</div>
           <div class="type">Membre Titulaire</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -163,6 +124,7 @@
           <div class="name">Sanitfwré</div>
           <div class="type">Membre Titulaire</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -171,6 +133,7 @@
           <div class="name">Alima EYANGA</div>
           <div class="type">Membre Titulaire</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -179,6 +142,7 @@
           <div class="name">Lanoir Fifamè LUCIANI</div>
           <div class="type">Membre Titulaire</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -187,6 +151,7 @@
           <div class="name">S. Christiano Emmanuel Dah HOUNDOGBANON</div>
           <div class="type">Membre Titulaire</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -195,6 +160,7 @@
           <div class="name">Sonagnon Bienvenu DOSSA</div>
           <div class="type">Membre Associé</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -203,6 +169,7 @@
           <div class="name">Wuilchrist TELLA</div>
           <div class="type">Membre Contributeur</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -211,22 +178,27 @@
           <div class="name">Koamivi Voodooa</div>
           <div class="type">Membre Contributeur</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
-      </tr></tbody>
+      </tr>
+            </tbody>
         </table>
 
         <h2 class="section-title">En attente de régularisation</h2>
-        <table id="tableAttente">
-            <tbody>
+        <table>
+            <tbody id="listAttente">
+                
       <tr class="member-row">
         <td class="col-nom">
           <div class="name">Pr. Pierre Olela NGONGO</div>
           <div class="type">Membre Titulaire</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIMD</span></td>
         <td class="col-status"><span class="status pending">○ EN ATTENTE</span></td>
-      </tr></tbody>
+      </tr>
+            </tbody>
         </table>
 
         <div class="footer">
@@ -236,12 +208,12 @@
 
     <script>
         function filterMembers() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
+            let input = document.getElementById('memberSearch').value.toLowerCase();
             let rows = document.getElementsByClassName('member-row');
             
             for (let i = 0; i < rows.length; i++) {
-                let text = rows[i].innerText.toLowerCase();
-                rows[i].style.display = text.includes(input) ? "" : "none";
+                let name = rows[i].getElementsByClassName('name')[0].innerText.toLowerCase();
+                rows[i].style.display = name.includes(input) ? "" : "none";
             }
         }
     </script>
