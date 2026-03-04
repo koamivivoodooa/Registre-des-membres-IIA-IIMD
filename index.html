@@ -17,61 +17,63 @@
         }
 
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--primary); margin: 0; padding: 40px 15px; -webkit-font-smoothing: antialiased; }
-        .container { max-width: 900px; margin: 0 auto; background: var(--card); padding: 60px 80px; border-radius: 32px; box-shadow: 0 20px 50px rgba(0,0,0,0.04); }
+        .container { max-width: 900px; margin: 0 auto; background: var(--card); padding: 60px 80px; border-radius: 32px; box-shadow: 0 20px 50px rgba(0,0,0,0.04); position: relative; }
 
-        header { text-align: center; margin-bottom: 40px; }
-        h1 { font-weight: 800; font-size: 22px; letter-spacing: -0.5px; text-transform: uppercase; margin: 0; }
-        .subtitle { color: var(--text-light); font-size: 14px; margin-top: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        header { text-align: center; margin-bottom: 60px; }
+        h1 { font-weight: 800; font-size: 22px; letter-spacing: 4px; text-transform: uppercase; margin: 0; color: var(--primary); }
+        .subtitle { color: var(--text-light); font-size: 13px; margin-top: 12px; font-weight: 600; letter-spacing: 1px; }
 
-        .search-container { margin: 30px 0; text-align: center; }
-        #memberSearch { width: 100%; max-width: 300px; padding: 10px 15px; border: 1px solid #eee; border-radius: 10px; font-family: inherit; font-size: 13px; outline: none; transition: all 0.3s; }
-        #memberSearch:focus { border-color: var(--text-light); box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        /* Recherche Discrète */
+        .search-wrapper { position: absolute; top: 40px; right: 40px; display: flex; align-items: center; }
+        #memberSearch { 
+            width: 0; opacity: 0; padding: 8px 0; border: none; border-bottom: 1px solid #ddd; 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); outline: none; font-size: 13px;
+        }
+        #memberSearch.active { width: 180px; opacity: 1; padding: 8px 10px; margin-right: 10px; }
+        .search-btn { background: none; border: none; cursor: pointer; color: var(--text-light); font-size: 18px; padding: 5px; transition: color 0.3s; }
+        .search-btn:hover { color: var(--primary); }
 
-        h2.section-title { font-size: 11px; text-transform: uppercase; color: var(--text-light); letter-spacing: 2px; margin: 50px 0 20px 0; text-align: center; display: block; }
+        h2.section-title { font-size: 10px; text-transform: uppercase; color: var(--text-light); letter-spacing: 3px; margin: 60px 0 25px 0; text-align: center; border-top: 1px solid #f1f5f9; pt: 30px; }
 
-        table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        table { width: 100%; border-collapse: collapse; table-layout: fixed; margin-bottom: 40px; }
         thead th { font-size: 10px; text-transform: uppercase; color: var(--text-light); padding-bottom: 15px; border-bottom: 1px solid #f1f5f9; letter-spacing: 1px; }
-        tr { border-bottom: 1px solid #f1f5f9; }
-        td { padding: 20px 0; vertical-align: middle; overflow: hidden; }
+        tr { border-bottom: 1px solid #f1f5f9; transition: background 0.2s; }
+        tr:hover { background: #fafafa; }
+        td { padding: 22px 0; vertical-align: middle; }
 
         .col-nom { width: 60%; text-align: left; }
         .col-spacer { width: 5%; }
         .col-org { width: 15%; text-align: left; }
         .col-status { width: 20%; text-align: right; }
 
-        .name { font-weight: 600; font-size: 16px; color: var(--primary); }
-        .type { font-size: 11px; color: var(--text-light); margin-top: 3px; }
-        .org { font-size: 10px; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 4px 8px; border-radius: 5px; white-space: nowrap; }
-        .status { font-size: 10px; font-weight: 700; padding: 5px 10px; border-radius: 100px; display: inline-block; white-space: nowrap; }
-        .status.active { color: var(--accent); border: 1px solid rgba(39, 174, 96, 0.2); }
-        .status.pending { color: var(--warning); border: 1px solid rgba(230, 126, 34, 0.2); }
+        .name { font-weight: 600; font-size: 15px; color: var(--primary); }
+        .type { font-size: 11px; color: var(--text-light); margin-top: 4px; }
+        .org { font-size: 10px; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 5px 10px; border-radius: 6px; white-space: nowrap; }
+        .status { font-size: 10px; font-weight: 700; padding: 6px 12px; border-radius: 100px; display: inline-block; white-space: nowrap; }
+        .status.active { color: var(--accent); border: 1px solid rgba(39, 174, 96, 0.15); }
+        .status.pending { color: var(--warning); border: 1px solid rgba(230, 126, 34, 0.15); }
 
-        .footer { margin-top: 60px; font-size: 11px; color: var(--text-light); text-align: center; line-height: 1.8; }
+        .footer { margin-top: 80px; font-size: 10px; color: var(--text-light); text-align: center; letter-spacing: 1px; text-transform: uppercase; }
 
         @media (max-width: 600px) {
-            body { padding: 20px 10px; }
-            .container { padding: 40px 25px; border-radius: 24px; }
-            .name { font-size: 14px; }
+            .container { padding: 40px 20px; border-radius: 0; }
+            .search-wrapper { position: relative; top: 0; right: 0; justify-content: center; margin-bottom: 30px; }
             .col-nom { width: 50%; }
-            .col-org { width: 20%; }
-            .col-status { width: 25%; }
-            .org { font-size: 9px; padding: 3px 6px; }
-            .status { font-size: 9px; padding: 4px 8px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="search-wrapper">
+            <input type="text" id="memberSearch" placeholder="Rechercher..." onkeyup="filterMembers()">
+            <button class="search-btn" onclick="toggleSearch()">🔍</button>
+        </div>
+
         <header>
             <h1>Registre des Membres</h1>
             <div class="subtitle">Institut Kemite des Sciences</div>
         </header>
 
-        <div class="search-container">
-            <input type="text" id="memberSearch" placeholder="Rechercher un nom..." onkeyup="filterMembers()">
-        </div>
-        
-        <h2 class="section-title">Membres Actifs</h2>
         <table>
             <thead>
                 <tr>
@@ -202,15 +204,20 @@
         </table>
 
         <div class="footer">
-            Dernière mise à jour : 3 mars 2026
+            Mise à jour : 4 mars 2026
         </div>
     </div>
 
     <script>
+        function toggleSearch() {
+            const input = document.getElementById('memberSearch');
+            input.classList.toggle('active');
+            if(input.classList.contains('active')) input.focus();
+        }
+
         function filterMembers() {
             let input = document.getElementById('memberSearch').value.toLowerCase();
             let rows = document.getElementsByClassName('member-row');
-            
             for (let i = 0; i < rows.length; i++) {
                 let name = rows[i].getElementsByClassName('name')[0].innerText.toLowerCase();
                 rows[i].style.display = name.includes(input) ? "" : "none";
