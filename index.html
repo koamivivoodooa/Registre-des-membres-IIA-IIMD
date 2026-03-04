@@ -14,7 +14,7 @@
             --accent: #27ae60;
             --warning: #e67e22;
             --text-light: #94a3b8;
-            --border: #e2e8f0; /* Gris plus visible */
+            --border: #e2e8f0;
         }
 
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--primary); margin: 0; padding: 40px 15px; -webkit-font-smoothing: antialiased; }
@@ -32,11 +32,8 @@
         header { text-align: center; margin-bottom: 60px; position: relative; }
         h1 { font-weight: 800; font-size: 22px; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; }
         .subtitle { color: var(--text-light); font-size: 13px; margin-top: 12px; font-weight: 600; letter-spacing: 1px; padding-bottom: 20px; }
-        
-        /* Séparateur prolongé */
         .header-sep { width: 80px; height: 1px; background: #b8c2cc; margin: 0 auto; }
 
-        /* Recherche déplacée en haut à droite entre titre et séparateur */
         .search-wrapper { 
             position: absolute; 
             right: 0; 
@@ -55,24 +52,23 @@
 
         h2.section-title { 
             font-size: 13px; text-transform: uppercase; color: var(--text-light); 
-            letter-spacing: 1px; margin: 60px 0 25px 0; text-align: left; /* Alignement gauche */
+            letter-spacing: 1px; margin: 60px 0 25px 0; text-align: left;
         }
 
         table { width: 100%; border-collapse: collapse; table-layout: fixed; margin-bottom: 40px; }
-        thead th { font-size: 10px; text-transform: uppercase; color: var(--text-light); padding-bottom: 15px; border-bottom: 1px solid var(--border); letter-spacing: 1px; text-align: left; /* Alignement gauche */ }
+        thead th { font-size: 10px; text-transform: uppercase; color: var(--text-light); padding-bottom: 15px; border-bottom: 1px solid var(--border); letter-spacing: 1px; text-align: left; }
         tr { border-bottom: 1px solid var(--border); }
         td { padding: 22px 0; vertical-align: middle; }
 
-        .col-nom { width: 50%; text-align: left; }
-        .col-spacer { width: 5%; }
+        /* Correction des Colonnes 60/20/20 */
+        .col-nom { width: 60%; text-align: left; }
         .col-org { width: 20%; text-align: left; }
-        .col-status { width: 25%; text-align: right; }
+        .col-status { width: 20%; text-align: right; }
 
         .name { font-weight: 600; font-size: 15px; }
         .type { font-size: 11px; color: var(--text-light); margin-top: 4px; }
         .org { font-size: 10px; font-weight: 700; color: #64748b; background: #f1f5f9; padding: 5px 10px; border-radius: 6px; }
         
-        /* Badge sur une seule ligne */
         .status { font-size: 10px; font-weight: 700; padding: 6px 12px; border-radius: 100px; display: inline-block; white-space: nowrap; }
         .status.active { color: var(--accent); border: 1px solid rgba(39, 174, 96, 0.15); }
         .status.pending { color: var(--warning); border: 1px solid rgba(230, 126, 34, 0.15); }
@@ -83,8 +79,9 @@
             body { padding: 10px; }
             .container { padding: 40px 20px; border-radius: 24px !important; }
             .search-wrapper { top: 40px; right: -10px; }
-            .col-nom { width: 45%; }
-            .col-status { width: 35%; }
+            .col-nom { width: 55%; } /* Ajustement léger pour mobile */
+            .col-org { display: none; } /* On cache l'organisation sur mobile pour garder le badge lisible */
+            .col-status { width: 45%; }
         }
     </style>
 </head>
@@ -104,7 +101,6 @@
             <thead>
                 <tr>
                     <th class="col-nom">Prénoms & Noms</th>
-                    <th class="col-spacer"></th>
                     <th class="col-org">Organisation</th>
                     <th class="col-status" style="text-align:right;">Statut</th>
                 </tr>
@@ -116,7 +112,6 @@
           <div class="name">Dr. Dodji Mahouignito Djehouty OLOU</div>
           <div class="type">Membre Titulaire</div>
         </td>
-        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -125,7 +120,6 @@
           <div class="name">Dr. Adjoa Herou Menesy DOMELEVO</div>
           <div class="type">Membre Titulaire</div>
         </td>
-        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -134,7 +128,6 @@
           <div class="name">Dr. Mawuli Chantal OLOU</div>
           <div class="type">Membre Titulaire</div>
         </td>
-        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -143,7 +136,6 @@
           <div class="name">Ayao TSISSE</div>
           <div class="type">Membre Titulaire</div>
         </td>
-        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -152,7 +144,6 @@
           <div class="name">Sanitfwré</div>
           <div class="type">Membre Titulaire</div>
         </td>
-        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -161,7 +152,6 @@
           <div class="name">Alima EYANGA</div>
           <div class="type">Membre Titulaire</div>
         </td>
-        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -170,7 +160,6 @@
           <div class="name">Lanoir Fifamè LUCIANI</div>
           <div class="type">Membre Titulaire</div>
         </td>
-        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -179,7 +168,6 @@
           <div class="name">S. Christiano Emmanuel Dah HOUNDOGBANON</div>
           <div class="type">Membre Titulaire</div>
         </td>
-        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -188,7 +176,6 @@
           <div class="name">Sonagnon Bienvenu DOSSA</div>
           <div class="type">Membre Associé</div>
         </td>
-        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -197,7 +184,6 @@
           <div class="name">Wuilchrist TELLA</div>
           <div class="type">Membre Contributeur</div>
         </td>
-        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -206,7 +192,6 @@
           <div class="name">Koamivi Voodooa</div>
           <div class="type">Membre Contributeur</div>
         </td>
-        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -222,7 +207,6 @@
           <div class="name">Pr. Pierre Olela NGONGO</div>
           <div class="type">Membre Titulaire</div>
         </td>
-        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIMD</span></td>
         <td class="col-status"><span class="status pending">○ EN ATTENTE</span></td>
       </tr>
