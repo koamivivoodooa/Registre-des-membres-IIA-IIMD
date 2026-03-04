@@ -60,8 +60,10 @@
         tr { border-bottom: 1px solid var(--border); }
         td { padding: 22px 0; vertical-align: middle; }
 
+        /* Proportions strictes 60, 5, 15, 20 */
         .col-nom { width: 60%; text-align: left; }
-        .col-org { width: 20%; text-align: left; }
+        .col-spacer { width: 5%; }
+        .col-org { width: 15%; text-align: left; }
         .col-status { width: 20%; text-align: right; }
 
         .name { font-weight: 600; font-size: 15px; }
@@ -78,9 +80,11 @@
             body { padding: 10px; }
             .container { padding: 40px 15px; border-radius: 24px !important; }
             .search-wrapper { top: 40px; right: 0; }
-            .name { font-size: 13px; }
-            .org { font-size: 8px; padding: 4px 6px; }
-            .status { font-size: 8px; padding: 4px 8px; }
+            .name { font-size: 12px; }
+            .type { font-size: 9px; }
+            .org { font-size: 7px; padding: 3px 5px; }
+            .status { font-size: 7px; padding: 4px 6px; }
+            .col-spacer { width: 2%; } /* Réduction légère pour mobile */
         }
     </style>
 </head>
@@ -100,6 +104,7 @@
             <thead>
                 <tr>
                     <th class="col-nom">Prénoms & Noms</th>
+                    <th class="col-spacer"></th>
                     <th class="col-org">Organisation</th>
                     <th class="col-status" style="text-align:right;">Statut</th>
                 </tr>
@@ -111,6 +116,7 @@
           <div class="name">Dr. Dodji Mahouignito Djehouty OLOU</div>
           <div class="type">Membre Titulaire</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -119,6 +125,7 @@
           <div class="name">Dr. Adjoa Herou Menesy DOMELEVO</div>
           <div class="type">Membre Titulaire</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -127,6 +134,7 @@
           <div class="name">Dr. Mawuli Chantal OLOU</div>
           <div class="type">Membre Titulaire</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -135,6 +143,7 @@
           <div class="name">Ayao TSISSE</div>
           <div class="type">Membre Titulaire</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -143,6 +152,7 @@
           <div class="name">Sanitfwré</div>
           <div class="type">Membre Titulaire</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -151,6 +161,7 @@
           <div class="name">Alima EYANGA</div>
           <div class="type">Membre Titulaire</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -159,6 +170,7 @@
           <div class="name">Lanoir Fifamè LUCIANI</div>
           <div class="type">Membre Titulaire</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -167,6 +179,7 @@
           <div class="name">S. Christiano Emmanuel Dah HOUNDOGBANON</div>
           <div class="type">Membre Titulaire</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -175,6 +188,7 @@
           <div class="name">Sonagnon Bienvenu DOSSA</div>
           <div class="type">Membre Associé</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -183,6 +197,7 @@
           <div class="name">Wuilchrist TELLA</div>
           <div class="type">Membre Contributeur</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -191,6 +206,7 @@
           <div class="name">Koamivi Voodooa</div>
           <div class="type">Membre Contributeur</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
         <td class="col-status"><span class="status active">● À JOUR</span></td>
       </tr>
@@ -206,6 +222,7 @@
           <div class="name">Pr. Pierre Olela NGONGO</div>
           <div class="type">Membre Titulaire</div>
         </td>
+        <td class="col-spacer"></td>
         <td class="col-org"><span class="org">IIMD</span></td>
         <td class="col-status"><span class="status pending">○ EN ATTENTE</span></td>
       </tr>
