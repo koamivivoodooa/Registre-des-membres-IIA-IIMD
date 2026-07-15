@@ -11,7 +11,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', -apple-system, system-ui, sans-serif;
-      background: #f2f5f9;
+      background: linear-gradient(145deg, #eef2f7 0%, #d9e0eb 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -22,21 +22,33 @@
       line-height: 1.5;
     }
 
+    /* Animation d'entrée de la carte */
+    @keyframes fadeSlideUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
     /* Carte principale */
     .card {
-      max-width: 900px;
+      max-width: 950px;
       width: 100%;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-radius: 36px;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 40px;
       padding: 2.8rem 3rem 2rem;
-      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      transition: box-shadow 0.2s;
+      box-shadow: 
+        0 40px 80px -20px rgba(0, 0, 0, 0.12),
+        0 8px 24px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      animation: fadeSlideUp 0.6s ease-out both;
+      transition: box-shadow 0.3s ease;
+    }
+    .card:hover {
+      box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.16);
     }
     @media (max-width: 700px) {
-      .card { padding: 1.5rem 1.2rem; border-radius: 24px; }
+      .card { padding: 1.8rem 1.2rem 1.5rem; border-radius: 28px; }
     }
 
     /* Header */
@@ -45,25 +57,35 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 2.5rem;
-      padding-bottom: 1.2rem;
-      border-bottom: 1px solid #eef2f7;
+      margin-bottom: 2.8rem;
+      padding-bottom: 1.4rem;
+      border-bottom: 2px solid #eef2f7;
     }
-    .header-left { display: flex; align-items: center; gap: 0.8rem; }
-    .badge {
-      background: #0f1a33;
-      color: white;
-      font-weight: 700;
-      font-size: 0.9rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 30px;
-      letter-spacing: 0.5px;
+    .header-left { display: flex; align-items: center; gap: 1rem; }
+
+    /* Logo */
+    .logo-institut {
+      height: 50px;
+      width: auto;
+      max-width: 70px;
+      border-radius: 14px;
+      background: #ffffff;
+      padding: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      object-fit: contain;
     }
+    .logo-institut:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
     .header-title {
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       font-weight: 700;
       letter-spacing: -0.02em;
       color: #0b162c;
+      line-height: 1.2;
     }
     .header-title small {
       display: block;
@@ -71,19 +93,23 @@
       font-size: 0.75rem;
       color: #6b7d9a;
       margin-top: 0.1rem;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
+
     .header-meta {
       font-size: 0.75rem;
       font-weight: 500;
       color: #6b7d9a;
-      background: rgba(0,0,0,0.02);
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(4px);
       padding: 0.3rem 1rem;
       border-radius: 40px;
-      border: 1px solid rgba(0,0,0,0.04);
+      border: 1px solid rgba(255, 255, 255, 0.8);
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
     }
     .header-meta .dot {
       width: 6px; height: 6px;
@@ -94,7 +120,7 @@
     }
     @keyframes pulse-dot {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(1.2); }
+      50% { opacity: 0.4; transform: scale(1.3); }
     }
 
     /* Recherche flottante */
@@ -103,15 +129,19 @@
       top: 30px; right: 30px;
       display: flex;
       align-items: center;
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
       padding: 6px 6px 6px 16px;
       border-radius: 60px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      border: 1px solid rgba(0,0,0,0.02);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.6);
       z-index: 1000;
-      transition: box-shadow 0.2s;
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
     }
-    .search-wrapper:focus-within { box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+    .search-wrapper:focus-within {
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+      transform: scale(1.01);
+    }
     #memberSearch {
       border: none;
       background: transparent;
@@ -121,7 +151,7 @@
       color: #1e293b;
       width: 0;
       opacity: 0;
-      transition: width 0.35s ease, opacity 0.25s ease;
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
     }
     #memberSearch.active {
       width: 200px;
@@ -132,13 +162,16 @@
       background: none;
       border: none;
       cursor: pointer;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       padding: 6px 8px;
       border-radius: 40px;
-      color: #6b7d9a;
-      transition: background 0.15s;
+      color: #5b6d89;
+      transition: background 0.15s, transform 0.15s;
     }
-    .search-btn:hover { background: #f1f4f9; }
+    .search-btn:hover {
+      background: #f1f4f9;
+      transform: scale(1.1);
+    }
     @media (max-width: 600px) {
       .search-wrapper { top: 20px; right: 20px; }
       #memberSearch.active { width: 150px; }
@@ -147,13 +180,20 @@
     /* Sections */
     .section-title {
       font-size: 0.7rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       color: #8b9bb5;
-      margin: 2.5rem 0 0.8rem 0;
-      border-bottom: 1px solid #eef2f7;
-      padding-bottom: 0.5rem;
+      margin: 3rem 0 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e2e8f0;
     }
 
     /* Tableaux */
@@ -164,9 +204,9 @@
       font-size: 0.95rem;
     }
     th, td {
-      padding: 0.9rem 0.4rem;
+      padding: 1rem 0.4rem;
       text-align: left;
-      border-bottom: 1px solid #eef2f7;
+      border-bottom: 1px solid #f1f5f9;
       vertical-align: middle;
     }
     th {
@@ -176,25 +216,30 @@
       letter-spacing: 0.04em;
       color: #7b8ba6;
       padding-bottom: 0.7rem;
-      border-bottom: 1.5px solid #e8edf4;
+      border-bottom: 2px solid #e8edf4;
     }
     tr:last-child td { border-bottom: none; }
-    tr.member-row:hover td { background: rgba(0,0,0,0.01); }
+    tr.member-row {
+      transition: background 0.15s ease;
+    }
+    tr.member-row:hover td {
+      background: rgba(0, 0, 0, 0.01);
+    }
     .col-nom { width: 55%; }
     .col-org { width: 25%; }
     .col-status { width: 20%; text-align: right; }
 
-    .name { font-weight: 600; color: #0b162c; }
-    .type { font-size: 0.75rem; color: #6b7d9a; margin-top: 0.15rem; }
+    .name { font-weight: 600; color: #0b162c; letter-spacing: -0.01em; }
+    .type { font-size: 0.75rem; color: #6b7d9a; margin-top: 0.2rem; }
     .org {
       display: inline-block;
       font-size: 0.7rem;
       font-weight: 600;
-      color: #3a4e6b;
+      color: #2d3f5e;
       background: #eef2f9;
       padding: 0.2rem 0.9rem;
       border-radius: 30px;
-      border: 1px solid rgba(0,0,0,0.02);
+      border: 1px solid rgba(255, 255, 255, 0.4);
     }
     .status {
       display: inline-flex;
@@ -206,23 +251,32 @@
       border-radius: 40px;
       border: 1px solid transparent;
       white-space: nowrap;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .status:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
     .status.active {
-      color: #1a7a4a;
+      color: #0f6a3a;
       background: #e6f7ee;
-      border-color: rgba(39,174,96,0.15);
+      border-color: rgba(39, 174, 96, 0.15);
     }
     .status.pending {
       color: #b55f1a;
       background: #fef5ec;
-      border-color: rgba(230,126,34,0.15);
+      border-color: rgba(230, 126, 34, 0.15);
+    }
+    .status-icon {
+      font-size: 0.9rem;
+      line-height: 1;
     }
 
     /* Footer */
     .footer {
-      margin-top: 2.5rem;
-      padding-top: 1.2rem;
-      border-top: 1px solid #eef2f7;
+      margin-top: 3rem;
+      padding-top: 1.4rem;
+      border-top: 2px solid #eef2f7;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -233,10 +287,11 @@
     .footer .count {
       font-weight: 500;
       background: #f1f4f9;
-      padding: 0.2rem 0.8rem;
+      padding: 0.2rem 0.9rem;
       border-radius: 30px;
+      color: #4b5f7a;
     }
-    .footer .count strong { color: #0b162c; }
+    .footer .count strong { color: #0b162c; font-weight: 700; }
 
     /* Responsive */
     @media (max-width: 600px) {
@@ -245,15 +300,17 @@
       .col-nom { width: 50%; }
       .col-org { width: 25%; }
       .col-status { width: 25%; text-align: right; }
-      td, th { padding: 0.7rem 0.3rem; font-size: 0.85rem; }
+      td, th { padding: 0.8rem 0.3rem; font-size: 0.85rem; }
       .status { font-size: 0.65rem; padding: 0.2rem 0.6rem; }
       .org { font-size: 0.6rem; padding: 0.1rem 0.6rem; }
       .footer { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+      .logo-institut { height: 40px; max-width: 55px; }
+      .header-title { font-size: 1.1rem; }
     }
     @media (max-width: 450px) {
       .card { padding: 1rem 0.8rem; }
-      .badge { font-size: 0.75rem; padding: 0.2rem 0.6rem; }
-      .header-title { font-size: 1.1rem; }
+      .header-left { gap: 0.5rem; }
+      .logo-institut { height: 34px; max-width: 45px; }
     }
   </style>
 </head>
@@ -269,7 +326,11 @@
   <div class="card">
     <div class="header">
       <div class="header-left">
-        <span class="badge">IIA·IIMD</span>
+        <!-- Logo de l'institut -->
+        <img src="https://merytptahpasashatou.wordpress.com/wp-content/uploads/2024/06/logo-site.jpg?w=63&h=63" 
+             alt="Logo Institut" 
+             class="logo-institut">
+        
         <div class="header-title">
           Registre des membres
           <small>Institut Kemite des Sciences</small>
@@ -300,7 +361,12 @@
           <div class="type">Membre Titulaire</div>
         </td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
-        <td class="col-status"><span class="status active">✔ À jour</span></td>
+        <td class="col-status">
+          <span class="status active">
+            <span class="status-icon">✓</span>
+            À jour
+          </span>
+        </td>
       </tr>
       <tr class="member-row">
         <td class="col-nom">
@@ -308,7 +374,12 @@
           <div class="type">Membre Titulaire</div>
         </td>
         <td class="col-org"><span class="org">IIA</span></td>
-        <td class="col-status"><span class="status active">✔ À jour</span></td>
+        <td class="col-status">
+          <span class="status active">
+            <span class="status-icon">✓</span>
+            À jour
+          </span>
+        </td>
       </tr>
       <tr class="member-row">
         <td class="col-nom">
@@ -316,7 +387,12 @@
           <div class="type">Membre Titulaire</div>
         </td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
-        <td class="col-status"><span class="status active">✔ À jour</span></td>
+        <td class="col-status">
+          <span class="status active">
+            <span class="status-icon">✓</span>
+            À jour
+          </span>
+        </td>
       </tr>
       <tr class="member-row">
         <td class="col-nom">
@@ -324,7 +400,12 @@
           <div class="type">Membre Titulaire</div>
         </td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
-        <td class="col-status"><span class="status active">✔ À jour</span></td>
+        <td class="col-status">
+          <span class="status active">
+            <span class="status-icon">✓</span>
+            À jour
+          </span>
+        </td>
       </tr>
       <tr class="member-row">
         <td class="col-nom">
@@ -332,7 +413,12 @@
           <div class="type">Membre Titulaire</div>
         </td>
         <td class="col-org"><span class="org">IIMD</span></td>
-        <td class="col-status"><span class="status active">✔ À jour</span></td>
+        <td class="col-status">
+          <span class="status active">
+            <span class="status-icon">✓</span>
+            À jour
+          </span>
+        </td>
       </tr>
       <tr class="member-row">
         <td class="col-nom">
@@ -340,7 +426,12 @@
           <div class="type">Membre Titulaire</div>
         </td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
-        <td class="col-status"><span class="status active">✔ À jour</span></td>
+        <td class="col-status">
+          <span class="status active">
+            <span class="status-icon">✓</span>
+            À jour
+          </span>
+        </td>
       </tr>
       <tr class="member-row">
         <td class="col-nom">
@@ -348,7 +439,12 @@
           <div class="type">Membre Titulaire</div>
         </td>
         <td class="col-org"><span class="org">IIA</span></td>
-        <td class="col-status"><span class="status active">✔ À jour</span></td>
+        <td class="col-status">
+          <span class="status active">
+            <span class="status-icon">✓</span>
+            À jour
+          </span>
+        </td>
       </tr>
       <tr class="member-row">
         <td class="col-nom">
@@ -356,7 +452,12 @@
           <div class="type">Membre Titulaire</div>
         </td>
         <td class="col-org"><span class="org">IIMD</span></td>
-        <td class="col-status"><span class="status active">✔ À jour</span></td>
+        <td class="col-status">
+          <span class="status active">
+            <span class="status-icon">✓</span>
+            À jour
+          </span>
+        </td>
       </tr>
       <tr class="member-row">
         <td class="col-nom">
@@ -364,7 +465,12 @@
           <div class="type">Membre Associé</div>
         </td>
         <td class="col-org"><span class="org">IIMD</span></td>
-        <td class="col-status"><span class="status active">✔ À jour</span></td>
+        <td class="col-status">
+          <span class="status active">
+            <span class="status-icon">✓</span>
+            À jour
+          </span>
+        </td>
       </tr>
       <tr class="member-row">
         <td class="col-nom">
@@ -372,7 +478,12 @@
           <div class="type">Membre Contributeur</div>
         </td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
-        <td class="col-status"><span class="status active">✔ À jour</span></td>
+        <td class="col-status">
+          <span class="status active">
+            <span class="status-icon">✓</span>
+            À jour
+          </span>
+        </td>
       </tr>
       <tr class="member-row">
         <td class="col-nom">
@@ -380,7 +491,12 @@
           <div class="type">Membre Associé</div>
         </td>
         <td class="col-org"><span class="org">IIA, IIMD</span></td>
-        <td class="col-status"><span class="status active">✔ À jour</span></td>
+        <td class="col-status">
+          <span class="status active">
+            <span class="status-icon">✓</span>
+            À jour
+          </span>
+        </td>
       </tr>
         </tbody>
       </table>
@@ -398,7 +514,12 @@
           <div class="type">Membre Contributeur</div>
         </td>
         <td class="col-org"><span class="org">IIA</span></td>
-        <td class="col-status"><span class="status pending">⟳ En attente</span></td>
+        <td class="col-status">
+          <span class="status pending">
+            <span class="status-icon">⟳</span>
+            En attente
+          </span>
+        </td>
       </tr>
       <tr class="member-row">
         <td class="col-nom">
@@ -406,7 +527,12 @@
           <div class="type">Membre Titulaire</div>
         </td>
         <td class="col-org"><span class="org">IIMD</span></td>
-        <td class="col-status"><span class="status pending">⟳ En attente</span></td>
+        <td class="col-status">
+          <span class="status pending">
+            <span class="status-icon">⟳</span>
+            En attente
+          </span>
+        </td>
       </tr>
       <tr class="member-row">
         <td class="col-nom">
@@ -414,7 +540,12 @@
           <div class="type">Membre Titulaire</div>
         </td>
         <td class="col-org"><span class="org">IIMD</span></td>
-        <td class="col-status"><span class="status pending">⟳ En attente</span></td>
+        <td class="col-status">
+          <span class="status pending">
+            <span class="status-icon">⟳</span>
+            En attente
+          </span>
+        </td>
       </tr>
       <tr class="member-row">
         <td class="col-nom">
@@ -422,7 +553,12 @@
           <div class="type">Membre Titulaire</div>
         </td>
         <td class="col-org"><span class="org">IIMD</span></td>
-        <td class="col-status"><span class="status pending">⟳ En attente</span></td>
+        <td class="col-status">
+          <span class="status pending">
+            <span class="status-icon">⟳</span>
+            En attente
+          </span>
+        </td>
       </tr>
       <tr class="member-row">
         <td class="col-nom">
@@ -430,7 +566,12 @@
           <div class="type">Membre Titulaire</div>
         </td>
         <td class="col-org"><span class="org">IIMD</span></td>
-        <td class="col-status"><span class="status pending">⟳ En attente</span></td>
+        <td class="col-status">
+          <span class="status pending">
+            <span class="status-icon">⟳</span>
+            En attente
+          </span>
+        </td>
       </tr>
         </tbody>
       </table>
